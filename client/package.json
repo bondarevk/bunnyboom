@@ -4,6 +4,7 @@
   "private": true,
   "dependencies": {
     "axios": "^0.17.1",
+    "bootstrap": "^4.0.0-alpha.6",
     "history": "^4.7.2",
     "jquery": "^3.2.1",
     "pixi.js": "^4.6.2",
@@ -16,7 +17,10 @@
     "redux": "^3.7.2",
     "redux-form": "^7.2.0",
     "redux-thunk": "^2.2.0",
-    "tether": "^1.4.3"
+    "socket.io-client": "^2.0.4",
+    "stats.js": "^0.17.0",
+    "tether": "^1.4.3",
+    "three": "^0.88.0"
   },
   "scripts": {
     "start": "react-scripts start",

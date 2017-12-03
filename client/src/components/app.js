@@ -10,7 +10,9 @@ class App extends Component {
   constructor(props) {
     super(props);
 
-    this.canvas = null;
+    this.gameElement = null;
+    this.gameBlocker = null;
+
     this.test = this.test.bind(this);
   }
 
@@ -20,7 +22,7 @@ class App extends Component {
 
 
   componentDidMount() {
-    this.game = new Game(this.canvas);
+    this.game = new Game(this.gameElement, this.gameBlocker);
   }
 
   componentWillUnmount() {
@@ -36,7 +38,8 @@ class App extends Component {
             <span>Bunny Boom</span>
           </div>
           <div className="App-game">
-            <canvas className="Game-canvas" ref={(canvas) => {this.canvas = canvas}} />
+            <div className="blocker" ref={(div) => {this.gameBlocker = div}}/>
+            <div className="game" ref={(div) => {this.gameElement = div}}/>
           </div>
         </div>
         <div className="App-chat">
