@@ -12,9 +12,8 @@
 
 .App-header {
   display: flex;
-  flex: 1 0 50px;
+  flex: 1 0 8vh;
   border-bottom: double #b9b9b9 6px;
-  padding: 15px;
 }
 
 .App-header > span {
@@ -25,7 +24,12 @@
 }
 
 .App-game {
+  display: flex;
   flex: 12 0 600px;
+}
+
+.Game-canvas {
+  flex: 1;
 }
 
 .App-chat {
@@ -37,8 +41,8 @@
 
 .App-logo {
   flex: 0;
-  margin-left: 40px;
-  height: 8vh;
+  margin: auto 4vh;
+  height: 7vh;
   animation: App-logo-jump infinite 3s linear;
 }
 

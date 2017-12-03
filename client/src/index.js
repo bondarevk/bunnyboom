@@ -9,16 +9,13 @@ import {reducer as form} from 'redux-form';
 import {ConnectedRouter, routerReducer, routerMiddleware} from 'react-router-redux'
 
 
-import {ProtectedRoute} from './components/protected/protectedRoute';
 import registerServiceWorker from './registerServiceWorker';
 import './index.css';
 
 import App from './components/app';
-import Signin from './components/signin/signin';
-import Signup from './components/signup/signup';
 
 import reducers from './reducers';
-import {USER_SIGNIN} from "./actions";
+import {CHANGE_USERNAME} from "./actions";
 
 // Bootstrap 4
 import 'bootstrap/dist/css/bootstrap.css';
@@ -39,13 +36,11 @@ const store = createStore(
   applyMiddleware(middleware, ReduxThunk)
 );
 
-const token = localStorage.getItem('token');
 const username = localStorage.getItem('username');
-if (token && username) {
+if (username) {
   store.dispatch({
-    type: USER_SIGNIN,
+    type: CHANGE_USERNAME,
     payload: {
-      token: token,
       username: username
     }
   })
@@ -56,9 +51,7 @@ ReactDOM.render(
     <ConnectedRouter history={history}>
       <div>
         <Switch>
-          <ProtectedRoute exact path="/" component={App}/>
-          <Route path="/signin" component={Signin}/>
-          <Route path="/signup" component={Signup}/>
+          <Route exact path="/" component={App}/>
           <Redirect to='/'/>
         </Switch>
       </div>
