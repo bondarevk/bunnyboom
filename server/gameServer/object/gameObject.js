@@ -11,6 +11,9 @@ class GameObject{
     this.needTick = false;
 
     this.color = 0xFFFFFF;
+    this.texture = null;
+    this.textureX = 3;
+    this.textureY = 3;
 
     this.tObject = new THREE.Object3D();
     this.tObject.position.x = 0;
@@ -120,7 +123,10 @@ class GameObject{
       height: this.height,
       depth: this.depth,
       color: this.color,
-      type: this.type
+      type: this.type,
+      texture: this.texture,
+      textureX: this.textureX,
+      textureY: this.textureY
     };
   }
 

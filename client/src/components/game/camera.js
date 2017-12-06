@@ -7,7 +7,7 @@ class Camera {
     this.pointerLockElement = pointerLockElement;
     this.blockerElement = blockerElement;
 
-    this.camera = new THREE.PerspectiveCamera(75, aspect, 1, 1000);
+    this.camera = new THREE.PerspectiveCamera(75, aspect, 0.1, 1000);
     this.controls = new PointerLockControls(this.camera);
 
     this.bind = {
