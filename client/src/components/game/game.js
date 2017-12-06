@@ -38,9 +38,10 @@ class Game {
     }
 
     gameObject.Object3D = RenderUtils.createBox(gameObject.posX, gameObject.posY, gameObject.posZ,
-      gameObject.width, gameObject.height, gameObject.depth,
-      parseInt(gameObject.color), false, true,
+      1, 1, 1, parseInt(gameObject.color), false, true,
       gameObject.texture, gameObject.textureX, gameObject.textureY);
+
+    gameObject.Object3D.scale.set(gameObject.width, gameObject.height, gameObject.depth);
     gameObject.Object3D.rotation.x = gameObject.rotationX;
     gameObject.Object3D.rotation.y = gameObject.rotationY;
     gameObject.Object3D.rotation.z = gameObject.rotationZ;
@@ -62,6 +63,41 @@ class Game {
 
     console.log(`Object ${id} removed`);
   }
+
+  updateGameObject(gameObject) {
+    if (!this.gameObjects.has(gameObject.id)) {
+      this.addGameObject(gameObject);
+      return;
+    }
+
+    // Update
+    const localObject = this.gameObjects.get(gameObject.id);
+    // Position
+    localObject.posX = gameObject.posX;
+    localObject.posY = gameObject.posY;
+    localObject.posZ = gameObject.posZ;
+    localObject.Object3D.position.x = localObject.posX;
+    localObject.Object3D.position.y = localObject.posY;
+    localObject.Object3D.position.z = localObject.posZ;
+
+    // Rotation
+    localObject.rotationX = gameObject.rotationX;
+    localObject.rotationY = gameObject.rotationY;
+    localObject.rotationZ = gameObject.rotationZ;
+    localObject.Object3D.rotation.x = localObject.rotationX;
+    localObject.Object3D.rotation.y = localObject.rotationY;
+    localObject.Object3D.rotation.z = localObject.rotationZ;
+
+    // Size
+    localObject.width = gameObject.width;
+    localObject.height = gameObject.height;
+    localObject.depth = gameObject.depth;
+    localObject.Object3D.scale.set(localObject.width, localObject.height, localObject.depth);
+
+
+    //TODO: Update all
+  }
+
 
 
 

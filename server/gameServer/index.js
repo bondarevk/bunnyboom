@@ -54,7 +54,6 @@ class GameServer {
       if (typeof gameObject.onDespawn === 'function') {
         gameObject.onDespawn();
       }
-
       this.physics.removeRigidBody(gameObject.tObject, gameObject.pObject);
       this.io.removeObjectById(gameObject.id);
       this.gameObjects.delete(gameObject.id);

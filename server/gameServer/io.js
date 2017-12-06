@@ -105,7 +105,7 @@ class IO {
     this.packets = [];
 
     for (const gameObject of global.gameServer.gameObjects) {
-      if (gameObject[1].needSync) {
+      if (gameObject[1].needSync || gameObject[1].mass > 0) {
         packet.gameObjects.push(gameObject[1].generatePacket());
         gameObject[1].needSync = false;
       }

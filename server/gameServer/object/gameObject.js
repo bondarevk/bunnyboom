@@ -41,7 +41,7 @@ class GameObject{
     this.shape.calculateLocalInertia(this.mass, new Ammo.btVector3( 0, 0, 0 ));
   }
 
-  setSize(width, height, depth) {
+  setSize(width=this.width, height=this.height, depth=this.depth) {
     this.width = width;
     this.height = height;
     this.depth = depth;

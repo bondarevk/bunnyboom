@@ -83,7 +83,9 @@ class IO {
         }
       }
 
-
+      for (const object of packet.gameObjects) {
+        global.game.updateGameObject(object);
+      }
 
     });
   }
