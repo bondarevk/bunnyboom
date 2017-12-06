@@ -71,10 +71,10 @@ class IO {
     })
   }
 
-  removeObject(gameObject) {
+  removeObjectById(id) {
     this.packets.push({
       name: 'removeObject',
-      data: gameObject.generatePacket()
+      data: id
     })
   }
 

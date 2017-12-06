@@ -73,10 +73,10 @@ class IO {
       for (const packetItem of packets) {
         switch (packetItem.name) {
           case 'addObject':
-            
+            global.game.addGameObject(packetItem.data);
             break;
           case 'removeObject':
-
+            global.game.removeGameObject(packetItem.data);
             break;
           default:
             break;

@@ -17,7 +17,11 @@ class GameServer {
     this.tickManager = new TickManager(this.physics, this.io);
 
     // Test
-    this.addObject(new GameObject(10, 10, 10));
+    const cube = new GameObject(10, 10, 10);
+    this.addObject(cube);
+    setTimeout(() => {
+      this.removeObject(cube);
+    }, 5000)
   }
 
   addObject(gameObject) {
@@ -25,6 +29,8 @@ class GameServer {
       this.physics.addRigidBody(gameObject.tObject, gameObject.pObject);
       this.gameObjects.set(gameObject.id, gameObject);
       this.io.addObject(gameObject);
+
+      console.log(`Object ${gameObject.id} added`);
       return true;
     }
     return false;
@@ -32,9 +38,15 @@ class GameServer {
 
   removeObject(gameObject) {
     if (this.gameObjects.has(gameObject.id)) {
+      if (typeof gameObject.onDespawn === 'function') {
+        gameObject.onDespawn();
+      }
+
       this.physics.removeRigidBody(gameObject.tObject, gameObject.pObject);
+      this.io.removeObjectById(gameObject.id);
       this.gameObjects.delete(gameObject.id);
-      this.io.removeObject(gameObject);
+
+      console.log(`Object ${gameObject.id} removed`);
       return true;
     }
     return false;
@@ -42,9 +54,14 @@ class GameServer {
 
   removeObjectById(id) {
     if (this.gameObjects.has(id)) {
+      if (typeof this.gameObjects[id].onDespawn === 'function') {
+        this.gameObjects[id].onDespawn();
+      }
       this.physics.removeRigidBody(this.gameObjects[id].tObject, this.gameObjects[id].pObject);
+      this.io.removeObjectById(id);
       this.gameObjects.delete(id);
 
+      console.log(`Object ${id} removed`);
       return true;
     }
     return false;

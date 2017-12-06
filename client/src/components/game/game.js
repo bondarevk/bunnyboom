@@ -28,6 +28,7 @@ class Game {
     this.scene.children.forEach((object) => {
       this.scene.remove(object);
     });
+    this.gameObjects.clear();
     this.addBasicObjects();
   }
 
@@ -43,6 +44,20 @@ class Game {
 
     this.scene.add(gameObject.Object3D);
     this.gameObjects.set(gameObject.id, gameObject);
+
+    console.log(gameObject);
+    console.log(`Object ${gameObject.id} added`);
+  }
+
+  removeGameObject(id) {
+    if (!this.gameObjects.has(id)) {
+      return;
+    }
+
+    this.scene.remove(this.gameObjects.get(id).Object3D);
+    this.gameObjects.delete(id);
+
+    console.log(`Object ${id} removed`);
   }
 
 
