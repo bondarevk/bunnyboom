@@ -2,8 +2,8 @@
 
 class TickManager {
 
-  constructor(physics, io) {
-    this.tickrate = 32;
+  constructor(physics, io, tickrate) {
+    this.tickrate = tickrate;
     this.currentTick = 0;
 
     this.physics = physics;

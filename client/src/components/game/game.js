@@ -39,7 +39,7 @@ class Game {
 
     gameObject.Object3D = RenderUtils.createBox(gameObject.posX, gameObject.posY, gameObject.posZ,
       gameObject.width, gameObject.height, gameObject.depth,
-      gameObject.color, false, true,
+      parseInt(gameObject.color), false, true,
       gameObject.texture, gameObject.textureX, gameObject.textureY);
     gameObject.Object3D.rotation.x = gameObject.rotationX;
     gameObject.Object3D.rotation.y = gameObject.rotationY;
@@ -69,7 +69,7 @@ class Game {
     this.scene = new THREE.Scene();
     this.clock = new THREE.Clock();
     this.time = 0;
-    this.scene.fog = new THREE.Fog(0xFFFFFF, 50, 50);
+    //this.scene.fog = new THREE.Fog(0xFFFFFF, 50, 50);
 
     this.camera = new Camera(this.container.clientWidth / this.container.clientHeight, this.container, this.blocker);
 
@@ -95,8 +95,8 @@ class Game {
   }
 
   addBasicObjects() {
-    const light = new THREE.HemisphereLight( 0xeeeeff, 0x777788, 0.75 );
-    light.position.set( 0.5, 1, 0.75 );
+    const light = new THREE.HemisphereLight( 0xFFFFFF, 0xFFFFFF, 0.90 );
+    light.position.set( 0, 10, 0 );
     this.scene.add(light);
     this.scene.add(this.camera.controls.getObject());
   }
