@@ -2,39 +2,125 @@
   "objects": [
     {
       "texture": "floor-tile",
-      "textureX": 6,
-      "textureY": 6,
+      "textureX": 50,
+      "textureY": 50,
+      "opacity": 1,
 
       "color": "0xFFFFFF",
       "mass": 0,
 
       "x": 0,
-      "y": 1,
+      "y": 0,
       "z": 0,
 
-      "width": 8,
+      "width": 50,
       "height": 2,
-      "depth": 8,
+      "depth": 50,
 
       "rotationX": 0,
       "rotationY": 0,
       "rotationZ": 0
     },
     {
-      "texture": "floor-tile",
+      "texture": null,
       "textureX": 1,
       "textureY": 1,
+      "opacity": 1,
 
-      "color": "0x00FF00",
-      "mass": 1,
+      "color": "0x555555",
+      "mass": 0,
 
-      "x": 1,
-      "y": 5,
-      "z": 1,
+      "x": -19,
+      "y": 3,
+      "z": -24.5,
+
+      "width": 12,
+      "height": 4,
+      "depth": 1,
+
+      "rotationX": 0,
+      "rotationY": 0,
+      "rotationZ": 0
+    },
+    {
+      "texture": null,
+      "textureX": 1,
+      "textureY": 1,
+      "opacity": 1,
+
+      "color": "0xFFFFFF",
+      "mass": 0,
+
+      "x": -24.5,
+      "y": 3,
+      "z": -23.5,
 
       "width": 1,
-      "height": 1,
+      "height": 4,
       "depth": 1,
+
+      "rotationX": 0,
+      "rotationY": 0,
+      "rotationZ": 0
+    },
+    {
+      "texture": null,
+      "textureX": 1,
+      "textureY": 1,
+      "opacity": 0.3,
+
+      "color": "0xFFFFFF",
+      "mass": 0,
+
+      "x": -24.5,
+      "y": 3,
+      "z": -21.5,
+
+      "width": 1,
+      "height": 4,
+      "depth": 3,
+
+      "rotationX": 0,
+      "rotationY": 0,
+      "rotationZ": 0
+    },
+    {
+      "texture": null,
+      "textureX": 1,
+      "textureY": 1,
+      "opacity": 1,
+
+      "color": "0xFFFFFF",
+      "mass": 0,
+
+      "x": -24.5,
+      "y": 3,
+      "z": -19,
+
+      "width": 1,
+      "height": 4,
+      "depth": 2,
+
+      "rotationX": 0,
+      "rotationY": 0,
+      "rotationZ": 0
+    },
+    {
+      "texture": null,
+      "textureX": 1,
+      "textureY": 1,
+      "opacity": 1,
+
+      "color": "0xFFFFFF",
+      "mass": 0,
+
+      "x": -24.5,
+      "y": 3,
+      "z": -19,
+
+      "width": 1,
+      "height": 4,
+      "depth": 2,
 
       "rotationX": 0,
       "rotationY": 0,

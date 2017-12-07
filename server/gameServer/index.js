@@ -29,6 +29,7 @@ class GameServer {
       obj.textureX = object.textureX;
       obj.textureY = object.textureY;
       obj.color = object.color;
+      obj.opacity = object.opacity;
 
       obj.setPosition(object.x, object.y, object.z);
       obj.setRotation(object.rotationX, object.rotationY, object.rotationZ);

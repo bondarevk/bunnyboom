@@ -1,7 +1,7 @@
 import * as THREE from 'three';
 
 class RenderUtils {
-  static createBox(x=0, y=0, z=0, width=1, height=1, depth=1, color=0x00FF00, castShadow=false, receiveShadow=false, base64=null, tX=3, tY=3) {
+  static createBox(x=0, y=0, z=0, width=1, height=1, depth=1, color=0x00FF00, castShadow=false, receiveShadow=false, base64=null, tX=3, tY=3, opacity=1) {
 
     let material;
     if (base64) {
@@ -15,9 +15,9 @@ class RenderUtils {
       };
       texture.repeat.set(tX, tY);
       texture.wrapS = texture.wrapT = THREE.MirroredRepeatWrapping;
-      material = new THREE.MeshPhongMaterial({color: color, map: texture});
+      material = new THREE.MeshPhongMaterial({color: color, map: texture, transparent: opacity < 1, opacity: opacity});
     } else {
-      material = new THREE.MeshPhongMaterial({color});
+      material = new THREE.MeshPhongMaterial({color, transparent: opacity < 1, opacity: opacity});
     }
 
 

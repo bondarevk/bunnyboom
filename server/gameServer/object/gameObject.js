@@ -14,6 +14,7 @@ class GameObject{
     this.texture = null;
     this.textureX = 3;
     this.textureY = 3;
+    this.opacity = 1;
 
     this.tObject = new THREE.Object3D();
     this.tObject.position.x = 0;
@@ -126,7 +127,8 @@ class GameObject{
       type: this.type,
       texture: this.texture,
       textureX: this.textureX,
-      textureY: this.textureY
+      textureY: this.textureY,
+      opacity: this.opacity
     };
   }
 

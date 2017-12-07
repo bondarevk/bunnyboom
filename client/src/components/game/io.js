@@ -1,4 +1,5 @@
-import io from 'socket.io-client'
+import io from 'socket.io-client';
+import Input from './input';
 
 class InputHandler {
 
@@ -6,10 +7,13 @@ class InputHandler {
     this.socket = socket;
     this.inputTimer = null;
     this.input = [];
+
+    this.inputManager = new Input(global.game.container);
   }
 
   start(tickrate, input = []) {
     this.input = input;
+    this.inputManager.setupKeys(this.input);
     this.stop();
     this.inputTimer = setInterval(this.inputLoop.bind(this), 1000 / tickrate);
   }
@@ -22,7 +26,10 @@ class InputHandler {
   }
 
   inputLoop() {
+      const input = this.inputManager.getInput();
+      input.cameraDirection = global.game.camera.controls.getDirection();
 
+      this.socket.emit('clientInput', input);
   }
 
 }

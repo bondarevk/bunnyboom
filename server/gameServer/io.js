@@ -42,9 +42,10 @@ class IO {
         return;
       }
 
-      const player = new Player(packet.username);
+      const player = new Player(socket, packet.username);
       socket.player = player;
       global.gameServer.players.set(packet.username, player);
+      global.gameServer.gameObjects.set(player.id, player);
       player.onConnect();
 
       console.log('Player joined.');
@@ -57,6 +58,28 @@ class IO {
         firstPerson: false,
         eId: null
       })
+    });
+
+    socket.on('clientInput', (packet) => {
+      if (!socket.player) return;
+
+      let input = {};
+      try {
+        input.keyboard = new Map(packet.keyboard);
+        input.cameraDirection = packet.cameraDirection;
+        input.mouse = {
+          isDown: packet.mouse.isDown,
+          button: packet.mouse.button
+        };
+
+        if (typeof input.mouse.isDown !== 'boolean' || typeof input.mouse.button !== 'number')
+          return;
+
+      } catch (err) {
+        return;
+      }
+
+      socket.player.input = input;
     });
   }
 
@@ -86,7 +109,7 @@ class IO {
       packet.gameObjects.push(gameObject[1].generatePacket());
     }
 
-    packet.input = [87, 83, 65, 68, 16];
+    packet.input = [87, 83, 65, 68, 16, 32];
     packet.tickrate = this.tickrate;
 
     socket.emit('clientInit', packet);

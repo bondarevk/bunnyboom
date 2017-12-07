@@ -19,9 +19,11 @@ import {CHANGE_USERNAME} from "./actions";
 
 // Bootstrap 4
 import 'bootstrap/dist/css/bootstrap.css';
+import Popper from 'popper.js';
 import $ from 'jquery';
 import tether from 'tether';
 window.Tether = tether;
+window.Popper = Popper;
 window.jQuery = window.$ = $;
 require('bootstrap');
 

@@ -44,29 +44,16 @@ export default function (camera) {
 
   this.enabled = false;
 
-  this.getObject = function () {
-
-    return yawObject;
-
-  };
-
-  this.getDirection = function () {
-
-    // assumes the camera itself is not rotated
-
-    const direction = new THREE.Vector3(0, 0, -1);
-    const rotation = new THREE.Euler(0, 0, 0, "YXZ");
-
-    return function (v) {
-
-      rotation.set(pitchObject.rotation.x, yawObject.rotation.y, 0);
-
-      v.copy(direction).applyEuler(rotation);
-
-      return v;
-
+    this.getObject = () => {
+        return yawObject;
     };
 
-  }();
+
+    this.getDirection = () => {
+        return {
+            pitch: pitchObject.rotation.x,
+            yaw: yawObject.rotation.y
+        }
+    };
 
 };

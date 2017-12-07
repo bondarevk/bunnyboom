@@ -25,9 +25,9 @@ class Game {
 
 
   clearGameObjects() {
-    this.scene.children.forEach((object) => {
-      this.scene.remove(object);
-    });
+    while(this.scene.children.length > 0){
+      this.scene.remove(this.scene.children[0]);
+    }
     this.gameObjects.clear();
     this.addBasicObjects();
   }
@@ -39,7 +39,7 @@ class Game {
 
     gameObject.Object3D = RenderUtils.createBox(gameObject.posX, gameObject.posY, gameObject.posZ,
       1, 1, 1, parseInt(gameObject.color), false, true,
-      gameObject.texture, gameObject.textureX, gameObject.textureY);
+      gameObject.texture, gameObject.textureX, gameObject.textureY, gameObject.opacity);
 
     gameObject.Object3D.scale.set(gameObject.width, gameObject.height, gameObject.depth);
     gameObject.Object3D.rotation.x = gameObject.rotationX;

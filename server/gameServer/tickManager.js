@@ -14,7 +14,7 @@ class TickManager {
   serverTick() {
     for (let gameObject of global.gameServer.gameObjects) {
       if (gameObject[1].needTick && typeof gameObject[1].onTick === 'function') {
-        gameObject.onTick();
+        gameObject[1].onTick();
       }
     }
 
